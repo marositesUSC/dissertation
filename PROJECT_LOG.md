@@ -2,22 +2,33 @@
 
 This file records project activities, milestones, ideas, decisions, issues, outputs, and analysis notes over time.
 
-Use this log to track what changed, why it changed, and where important outputs are located. Routine code changes should still be tracked with Git commits; this log is for human-readable project context. This should be a handy way to track idea evolution. 
+
+## 2026-05-28
+### Establish GitHub Repo and relevant workflows. 
+**Summary:**
+One of the biggest challenges so far has been staying organised and working in a linear fashion. I've established this repo to keep track of everything (including notes, which will be kept here). 
+
+**Changes made:**
+- established directory and started documentation. 
+
+**Next steps:**
+- work on moving data where it needs to be or point [config files](config/) to the correct places. 
+**Notes:**  
+I am really liking this organization. I need to spend a few weeks getting practiced at adding new information,  keeping up on what I have done, and next steps. 
+
+---
+---
+
+<!---
 
 ## Basic Format ##
 
 ## Date
-
 ### Things
-
 **Summary:**
-Create a short description of activities. 
-
 **Changes made:**
-- list any changes of importance
-
 **Notes:**
-- list any ideas or findings
-
+**Next steps:**
 **Figures/outputs:**
-<!--None yet, but link them with ![Site map](outputs/figures/site_map.png)-->
+___ 
+--->
