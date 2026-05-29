@@ -1,4 +1,5 @@
 # An investigation of nocturnal dispersion measurements in shallow terrain.
+*quick link to [project log](PROJECT_LOG.md)*
 
 This repository supports dissertation research on nocturnal smoke-plume dispersion in shallow terrain using data from the 2018 Stable Air Variability ANd Transport (SAVANT) field campaign (Hiscox et al., 2023). The project focuses on characterizing plume behavior in stable boundary layers using intersecting aerosol lidar scans, surface meteorological observations, terrain data, and dispersion-model comparisons.
 
