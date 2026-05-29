@@ -1,0 +1,18 @@
+project:
+  name: my_project
+
+directories:
+  data: data
+  raw: data/00_raw
+  interim: data/01_interim
+  processed: data/02_processed
+  model_inputs: data/03_model_inputs
+  models: data/04_models
+  final: data/09_final
+  external: data/99_external
+  outputs: outputs
+  figures: outputs/figures
+  maps: outputs/maps
+  tables: outputs/tables
+  gis: gis
+  docs: docs

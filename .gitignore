@@ -1,0 +1,76 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Conda
+.conda/
+env/
+
+# Data - usually do not version large data
+data/00_raw/*
+data/01_interim/*
+data/02_processed/*
+data/05a_model_inputs/*
+data/05b_models/*
+data/09_final/*
+data/99_external/*
+
+# Keep folder placeholders
+!data/00_raw/.gitkeep
+!data/01_interim/.gitkeep
+!data/02_processed/.gitkeep
+!data/05a_model_inputs/.gitkeep
+!data/05b_models/.gitkeep
+!data/09_final/.gitkeep
+!data/99_external/.gitkeep
+
+# GIS data
+*.gdb/
+*.geodatabase/
+*.lock
+*.aprx.lock
+
+# Large scientific/geospatial files
+*.nc
+*.grib
+*.grb
+*.hdf
+*.h5
+*.tif
+*.tiff
+*.img
+*.las
+*.laz
+
+# Outputs
+outputs/*
+!outputs/animations/
+!outputs/animations/.gitkeep
+!outputs/figures/
+!outputs/figures/.gitkeep
+!outputs/maps/
+!outputs/maps/.gitkeep
+!outputs/reports/
+!outputs/reports/.gitkeep
+!outputs/tables/
+!outputs/tables/.gitkeep
+
+# OS/editor
+.DS_Store
+Thumbs.db
+
+# VSCode settings
+.vscode/

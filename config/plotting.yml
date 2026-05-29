@@ -1,0 +1,142 @@
+# plotting.yml
+# Project-level plotting and visualization settings.
+#
+# Use this file to define consistent figure sizes, resolution, fonts, map settings,
+# output formats, labels, and reusable style choices.
+#
+# This file should store visualization settings, not plotting code.
+
+figures:
+  default:
+    width_inches: 7
+    height_inches: 5
+    dpi: 300
+    format: png
+    transparent: false
+    bbox_inches: tight
+
+  manuscript:
+    single_column_width_inches: 3.5
+    double_column_width_inches: 7.0
+    height_inches: 4.5
+    dpi: 300
+    format: png
+
+  presentation:
+    width_inches: 10
+    height_inches: 5.625
+    dpi: 150
+    format: png
+
+  poster:
+    width_inches: 12
+    height_inches: 8
+    dpi: 300
+    format: png
+
+fonts:
+  family: Arial
+  title_size: 14
+  subtitle_size: 12
+  axis_label_size: 11
+  tick_label_size: 10
+  legend_size: 10
+  annotation_size: 9
+
+lines:
+  default_width: 1.5
+  thin_width: 0.8
+  thick_width: 2.5
+  marker_size: 5
+
+axes:
+  show_grid: true
+  grid_linewidth: 0.5
+  grid_alpha: 0.3
+  spine_visibility:
+    top: false
+    right: false
+    bottom: true
+    left: true
+
+colors:
+  # Keep this section project-specific.
+  # Add named colors only when you intentionally want a consistent palette.
+  primary: null
+  secondary: null
+  accent: null
+
+  categorical:
+    class_1: null
+    class_2: null
+    class_3: null
+
+  sequential:
+    low: null
+    mid: null
+    high: null
+
+maps:
+  default:
+    crs: EPSG:5070
+    dpi: 300
+    format: png
+    basemap: none
+    north_arrow: true
+    scale_bar: true
+    graticule: false
+
+  extent:
+    xmin: null
+    ymin: null
+    xmax: null
+    ymax: null
+    crs: null
+
+  layers:
+    study_area_boundary:
+      path: gis/shared/study_area_boundary.gpkg
+      line_width: 1.0
+      fill: false
+
+    points_of_interest:
+      path: null
+      marker_size: 20
+
+labels:
+  # Optional project-wide display labels.
+  # These can overlap with variables.yml, but variables.yml should remain the
+  # authoritative place for variable-specific metadata.
+  x_axis_default: null
+  y_axis_default: null
+  colorbar_default: null
+
+  units:
+    temperature_celsius: "°C"
+    distance_meters: "m"
+    distance_kilometers: "km"
+    area_square_kilometers: "km²"
+    percent: "%"
+
+outputs:
+  figures_dir: outputs/figures
+  maps_dir: outputs/maps
+  tables_dir: outputs/tables
+  reports_dir: outputs/reports
+
+  filename_conventions:
+    use_lowercase: true
+    replace_spaces_with: "_"
+    include_date: false
+    date_format: "%Y%m%d"
+
+notebooks:
+  inline_dpi: 150
+  save_figures: true
+  display_figures: true
+
+accessibility:
+  use_colorblind_friendly_palettes: true
+  avoid_red_green_only: true
+  include_units_in_axis_labels: true
+  include_descriptive_titles: true

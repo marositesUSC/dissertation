@@ -1,0 +1,14 @@
+study_area:
+  name: Where is it?
+  description: Study region for land-atmosphere interaction analysis.
+
+spatial:
+  crs: EPSG:####
+  boundary_file: gis/#####.shp
+  states/countries: 
+    - Illinois
+
+temporal:
+  start_date: 2018-09-15
+  end_date: 2018-11-15
+  timezone: US/Central

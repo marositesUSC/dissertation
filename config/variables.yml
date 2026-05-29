@@ -1,0 +1,49 @@
+# variables.yml
+# Project-level variable dictionary.
+#
+# Use this file to define standard variable names, source-specific raw names,
+# units, labels, valid ranges, missing values, and notes.
+#
+# This file should describe variables used in the project. It should not contain
+# actual observational or modeled data.
+
+variables:
+  example_continuous_variable:
+    description: Short description of the variable.
+    standard_name: example_continuous_variable
+    raw_names:
+      source_a: raw_variable_name_a
+      source_b: raw_variable_name_b
+    units_raw:
+      source_a: original_units_a
+      source_b: original_units_b
+    units_processed: processed_units
+    label: Example Continuous Variable
+    plot_label: "Example Continuous Variable (units)"
+    variable_type: continuous
+    expected_range:
+      min: null
+      max: null
+    missing_values:
+      - -9999
+      - null
+    notes: Add conversion notes, quality-control notes, or interpretation notes here.
+
+  example_categorical_variable:
+    description: Short description of the categorical variable.
+    standard_name: example_categorical_variable
+    raw_names:
+      source_a: raw_variable_name
+    units_raw:
+      source_a: categorical
+    units_processed: categorical
+    label: Example Categorical Variable
+    plot_label: Example Categorical Variable
+    variable_type: categorical
+    categories:
+      1: Category One
+      2: Category Two
+      3: Category Three
+    missing_values:
+      - null
+    notes: Add notes about class definitions, source documentation, or recoding.

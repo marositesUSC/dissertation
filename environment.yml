@@ -1,0 +1,20 @@
+name: project-env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pyyaml
+  - pytest
+  - numpy
+  - pandas
+  - matplotlib
+  - jupyterlab
+  - ipykernel
+  - xarray
+  - netcdf4
+  - scipy
+  - geopandas
+  - rasterio
+  - rioxarray
+  - pyproj
+  - shapely
