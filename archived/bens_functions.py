@@ -367,7 +367,7 @@ def file_to_data(txt_file, max_distance=400, bin_width=7.5, origin_X=0, origin_Y
     # Add distance information
     step_size = bin_width
     data['distance'] = (data.index+1) * step_size 
-    data['x'] = orign_X + data['distance'] * np.cos(np.radians(Zenith)) * np.sin(np.radians(Azimuth))
+    data['x'] = origin_X + data['distance'] * np.cos(np.radians(Zenith)) * np.sin(np.radians(Azimuth))
     data['y'] = origin_Y + data['distance'] * np.cos(np.radians(Zenith)) * np.cos(np.radians(Azimuth))
     data['z'] = origin_Z + data['distance'] * np.sin(np.radians(Zenith))
    
