@@ -2,6 +2,15 @@
 
 This file records project activities, milestones, ideas, decisions, issues, outputs, and analysis notes over time.
 
+## 2026-06-18
+### Moving Data Around
+**Summary:** I am trying to organize my data. I previously had the raw data from Lidars stored in differeent dirves, folders, and formats. I am working to store all SAVANT Lidar Data on OneDrive, located at `C:\Users\ben\OneDrive - University of South Carolina\SAVANT_Data\01_interim` with folders for USC and UIUC and for each day they were running. These files will be in the .txt file format. I will keep the raw data format on my external hard drive. I previously used some tools from Raymetrics (need to find those steps again) to convert from the true raw data to an intermediate .txt or .csv format. I am working to get all data into that same intermediate .txt format. 
+
+Actually, I am seeing this is not necessary. I am writing the data as a csv to the OneDrive. USC and UIUC will be seperated, and grouped by date. 
+ 
+**Next steps:**  From there, I want to create meta data for each day of the campaign that we have lidar data. This will give me a better starting place as opposed to observing just the data from the 2nd.     
+  
+
 ## 2026-06-16
 ### Getting organized with new file structure
 **Summary:**
