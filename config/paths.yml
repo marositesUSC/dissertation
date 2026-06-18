@@ -1,18 +1,43 @@
 project:
-  name: my_project
+  name: Dissertation
 
-directories:
-  data: data
-  raw: data/00_raw
-  interim: data/01_interim
-  processed: data/02_processed
-  model_inputs: data/03_model_inputs
-  models: data/04_models
-  final: data/09_final
-  external: data/99_external
-  outputs: outputs
-  figures: outputs/figures
-  maps: outputs/maps
-  tables: outputs/tables
-  gis: gis
-  docs: docs
+paths:
+  # Project folders inside the GitHub repo
+  project_root: "."
+  local_data_dir: "data"
+  notebooks_dir: "notebooks"
+  notes_dir: "notes"
+  figures_dir: "figures"
+
+  # Main external data root on OneDrive
+  onedrive_data_root: "C:/Users/ben/OneDrive - University of South Carolina/SAVANT_Data"
+
+  # OneDrive data tiers
+  raw_data_dir: "C:/Users/ben/OneDrive - University of South Carolina/SAVANT_Data/00_raw"
+  interim_data_dir: "C:/Users/ben/OneDrive - University of South Carolina/SAVANT_Data/01_interim"
+  processed_data_dir: "C:/Users/ben/OneDrive - University of South Carolina/SAVANT_Data/02_processed"
+  model_inputs_dir: "C:/Users/ben/OneDrive - University of South Carolina/SAVANT_Data/03_model_inputs"
+  models_dir: "C:/Users/ben/OneDrive - University of South Carolina/SAVANT_Data/04_models"
+  final_data_dir: "C:/Users/ben/OneDrive - University of South Carolina/SAVANT_Data/09_final"
+  external_data_dir: "C:/Users/ben/OneDrive - University of South Carolina/SAVANT_Data/99_external"
+
+  # Specific raw data subfolders
+  profiler_products_dir: "C:/Users/ben/OneDrive - University of South Carolina/SAVANT_Data/00_raw/449_profiler_products"
+  radar_dir: "C:/Users/ben/OneDrive - University of South Carolina/SAVANT_Data/00_raw/449_radar"
+  all_sky_dir: "C:/Users/ben/OneDrive - University of South Carolina/SAVANT_Data/00_raw/all_sky"
+  ceilometer_dir: "C:/Users/ben/OneDrive - University of South Carolina/SAVANT_Data/00_raw/ceilometer"
+  ceilometer_plots_dir: "C:/Users/ben/OneDrive - University of South Carolina/SAVANT_Data/00_raw/ceilometer_plots"
+
+  # Interim folders of lidar data
+  lidar_dir: "C:/Users/ben/OneDrive - University of South Carolina/SAVANT_Data/01_interim"
+  uiuc_interim_dir: "C:/Users/ben/OneDrive - University of South Carolina/SAVANT_Data/01_interim/UIUC"
+  usc_interim_dir: "C:/Users/ben/OneDrive - University of South Carolina/SAVANT_Data/01_interim/USC"
+
+files:
+  # These are examples. Update with actual filenames once you know them.
+  persistent_events: "data/event_lists/persistent_events_v01.csv"
+  inversion_events: "inversiontimeswithwinds.pkl"
+  temperature_data: "alltemperatures_with_deltav2.pkl"
+  tke_data: "TKE_all_for_inversion.pkl"
+  wind_data: "Winddall_for_inversion.pkl"
+

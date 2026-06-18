@@ -2,6 +2,15 @@
 
 This file records project activities, milestones, ideas, decisions, issues, outputs, and analysis notes over time.
 
+## 2026-06-16
+### Getting organized with new file structure
+**Summary:**
+Moving data around so that I can get back into the analysis. Previous notebooks have started the process, but I had several small compounding issues.   
+**Changes made:**  
+I created an archived folder that way I can access some older scripts or notebooks.   
+**Next steps:**  
+Get to processing data using updated origin points. 
+___ 
 
 ## 2026-05-28
 ### Establish GitHub Repo and relevant workflows. 
