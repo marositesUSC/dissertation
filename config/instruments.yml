@@ -1,0 +1,75 @@
+# config/instruments.yml
+#
+# Instrument geometry for SAVANT dual-lidar spatial-temporal alignment.
+# Projected coordinates use EPSG:26971, Illinois State Plane East, NAD83.
+
+coordinate_system:
+  horizontal_crs: "EPSG:26971"
+  horizontal_crs_name: "NAD83 / Illinois East"
+  horizontal_units: "meters"
+  geographic_crs: "EPSG:4326"
+
+UIUC:
+  name: "UIUC Aerosol Lidar"
+  type: "aerosol_backscatter_lidar"
+
+  deployments:
+    pre_2018_10_15:
+      start_date: "2018-09-15"
+      end_date: "2018-10-14"
+
+      latitude_deg: 40.2094444444
+      longitude_deg: -88.4058333333
+
+      origin_x_m: 293828.056
+      origin_y_m: 393258.261
+      origin_z_m: null  # TODO: confirm elevation datum/source
+
+      board_height_m: 0.31
+      lidar_height_above_board_m: 1.8
+      height_above_ground_m: 2.11
+
+      azimuth_reference_deg: 0.0
+      reference_target: "main_feeder_gully_intersection"
+
+    post_2018_10_15:
+      start_date: "2018-10-15"
+      end_date: null
+
+      latitude_deg: 40.2099916667
+      longitude_deg: -88.4044527778
+
+      origin_x_m: 293945.632
+      origin_y_m: 393318.927
+      origin_z_m: null  # TODO: confirm elevation datum/source
+
+      board_height_m: 0.31
+      lidar_height_above_board_m: 1.8
+      height_above_ground_m: 2.11
+
+      azimuth_reference_deg: 110.0
+      zenith_reference_deg: -0.6
+      reference_target: "main_feeder_gully_intersection"
+
+      board_tilt_toward_gully_deg: -7.4
+      board_tilt_west_deg: -0.2
+
+USC:
+  name: "USC Aerosol Lidar"
+  type: "aerosol_backscatter_lidar"
+
+  deployment:
+    origin_x_m: 293677.5
+    origin_y_m: 393553.7
+    origin_z_m: 337.0  # TODO: verify
+    height_above_ground_m: 2.0
+
+    azimuth_offset_deg: 118.0
+    zenith_offset_deg: 0.0
+
+known_targets:
+  main_feeder_gully_intersection:
+    latitude_deg: 40.2103416667
+    longitude_deg: -88.4039638889
+    x_m: 293987.282
+    y_m: 393357.756
