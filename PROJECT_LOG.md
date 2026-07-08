@@ -2,6 +2,18 @@
 
 This file records project activities, milestones, ideas, decisions, issues, outputs, and analysis notes over time.
 
+## 2026-07-08
+### Experimenting with QA/QC flags
+**Summary:** ...
+ 
+**Next steps:**  ...  
+
+## 2026-06-30
+### Setting up data flags
+**Summary:** Working on QA/QC Flags
+ 
+**Next steps:**  Expand the selection of data to run QA/QC checks on.   
+
 ## 2026-06-18
 ### Moving Data Around
 **Summary:** I am trying to organize my data. I previously had the raw data from Lidars stored in differeent dirves, folders, and formats. I am working to store all SAVANT Lidar Data on OneDrive, located at `C:\Users\ben\OneDrive - University of South Carolina\SAVANT_Data\01_interim` with folders for USC and UIUC and for each day they were running. These files will be in the .txt file format. I will keep the raw data format on my external hard drive. I previously used some tools from Raymetrics (need to find those steps again) to convert from the true raw data to an intermediate .txt or .csv format. I am working to get all data into that same intermediate .txt format. 

@@ -49,6 +49,7 @@ UIUC:
 
       azimuth_reference_deg: 110.0
       zenith_reference_deg: -0.6
+
       reference_target: "main_feeder_gully_intersection"
 
       board_tilt_toward_gully_deg: -7.4
@@ -59,13 +60,28 @@ USC:
   type: "aerosol_backscatter_lidar"
 
   deployment:
-    origin_x_m: 293677.5
-    origin_y_m: 393553.7
-    origin_z_m: 337.0  # TODO: verify
-    height_above_ground_m: 2.0
+    post_2018_10_15:
+      start_date: "2018-10-15"
+      end_date: null
 
-    azimuth_offset_deg: 118.0
-    zenith_offset_deg: 0.0
+      latitude_deg: null
+      longitude_deg: null
+
+      origin_x_m: 293677.5
+      origin_y_m: 393553.7
+      origin_z_m: 337.0  # TODO: verify
+
+      board_height_m: 0.31
+      lidar_height_above_board_m: 1.8
+      height_above_ground_m: 2.1
+
+      azimuth_offset_deg: 118.0
+      zenith_offset_deg: 0.0
+
+      reference_target: null
+
+      board_tilt_toward_gully_deg: -7.4
+      board_tilt_west_deg: -0.2
 
 known_targets:
   main_feeder_gully_intersection:

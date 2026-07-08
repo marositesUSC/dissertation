@@ -51,21 +51,21 @@ This project uses observations from the SAVANT field campaign near Mahomet, Illi
 
 ## Directory Guide
 
-| Directory / File | Purpose |
-|---|---|
+| Directory / File | Purpose | Quick Note/Description |
+|---|---|---|
 | [`README.md`](README.md) | Project overview, setup instructions, and repository guide. |
-| [`PROJECT_LOG.md`](PROJECT_LOG.md) | Human-readable project log for major decisions, progress, outputs, and notes. |
+| [`PROJECT_LOG.md`](PROJECT_LOG.md) | Human-readable project log for major decisions, progress, outputs, and notes. |  |
 | [`environment.yml`](environment.yml) | Conda/Mamba environment definition. |
 | [`assets/`](assets/README.md) | Supporting images, diagrams, screenshots, and other lightweight files used in README files, project logs, and documentation. |
-| [`config/`](config/README.md) | Project configuration files such as paths, study area settings, plotting settings, and variable metadata. |
-| [`data/`](data/README.md) | Project data organized by processing stage. Large data files are usually not tracked by Git. |
-| [`docs/`](docs/README.md) | Project documentation, methods notes, references, and supporting written materials. |
-| [`gis/`](gis/README.md) | GIS project files, geodatabases, layer files, and map-related materials. |
-| [`notebooks/`](notebooks/) | Jupyter notebooks for exploration, analysis, visualization, and workflow documentation. |
-| [`outputs/`](outputs/) | Generated figures, maps, tables, animations, reports, and other products. |
-| [`scripts/`](scripts/) | Standalone scripts for processing, analysis, modeling, and output generation. |
-| [`src/`](src/README.md) | Reusable project code and helper functions. |
-| [`tests/`](tests/) | Tests for reusable code in `src/`. |
+| [`config/`](config/README.md) | Project configuration files such as paths, study area settings, plotting settings, and variable metadata. |  |
+| [`data/`](data/README.md) | Project data organized by processing stage. Large data files are usually not tracked by Git. |  |
+| [`docs/`](docs/README.md) | Project documentation, methods notes, references, and supporting written materials. |  |
+| [`gis/`](gis/README.md) | GIS project files, geodatabases, layer files, and map-related materials. |  |
+| [`notebooks/`](notebooks/) | Jupyter notebooks for exploration, analysis, visualization, and workflow documentation. | The research story. |
+| [`outputs/`](outputs/) | Generated figures, maps, tables, animations, reports, and other products. | figure/tables |
+| [`scripts/`](scripts/) | Standalone scripts for processing, analysis, modeling, and output generation. |  |
+| [`src/`](src/README.md) | Reusable project code and helper functions. | Reusable methods. |
+| [`tests/`](tests/) | Tests for reusable code in `src/`. | check to make sure core functions work. |
 
 ## Data Organization
 
@@ -143,7 +143,7 @@ python -m ipykernel install --user --name project-env --display-name "Python (pr
 
 ## Configuration Files
 
-Project settings are stored in [`config/`](config/) so that important choices are not hardcoded across scripts and notebooks. You can hardcode into note books and scripts, but to make it easier try to use the configuration controls here.
+Project settings are stored in [`config/`](config/) so that important choices are not hardcoded across scripts and notebooks. 
 
 Common configuration files include:
 
@@ -162,7 +162,7 @@ See [`src/README.md`](src/README.md) for import examples and usage notes.
 
 The intended workflow is:
 
-1. Place original source data in [`data/00_raw/`](data/00_raw/) or [`data/99_external/`](data/99_external/).
+1. Place original source data in [`data/00_raw/`](data/00_raw/), [`data/99_external/`](data/99_external/), or store on USC servers and document.
 2. Document each dataset in [`data/datasets.md`](data/datasets.md).
 3. Use scripts or notebooks to clean and transform data.
 4. Save intermediate products to [`data/01_interim/`](data/01_interim/).
@@ -171,7 +171,7 @@ The intended workflow is:
 7. Save model artifacts or model outputs to [`data/04_models/`](data/04_models/).
 8. Save final curated products to [`data/09_final/`](data/09_final/).
 9. Save generated figures, maps, tables, animations, and reports to [`outputs/`](outputs/).
-10. Record major project decisions, milestones, and important outputs in [`PROJECT_LOG.md`](PROJECT_LOG.md).
+10. Record project decisions, milestones, and important outputs in [`PROJECT_LOG.md`](PROJECT_LOG.md).
 
 Whenever possible, processed and final outputs should be reproducible from the raw/external data and the code in this repository.
 
@@ -185,6 +185,7 @@ Initial work will focus on reading lidar data and selecting one or more high-qua
 Planned Tasks include:
 - Build an inventory of lidar data from SAVANT intensive observational periods.
 - Process raw backscatter data. 
+- Add QA/QC flags for backscatter data.
 - Align down-gully and cross-gully scan geometries. 
 - Analyze datasets together to see if there are any biases or corrections needed. 
 - Identify nights with usable intersecting scans.
@@ -311,10 +312,11 @@ Outputs are often ignored by Git unless they are final, lightweight, and intenti
 
 ## Project Log
 
-Use [`PROJECT_LOG.md`](PROJECT_LOG.md) to record major project activity, decisions, issues, and outputs.
+Use [`PROJECT_LOG.md`](PROJECT_LOG.md) to record project activity, decisions, issues, and outputs. Used as a quick reference for jumping between projects. 
 
 Examples of useful log entries include:
 
+- Basic information on intial steps.
 - Dataset added or updated
 - Processing method changed
 - Model configuration changed
