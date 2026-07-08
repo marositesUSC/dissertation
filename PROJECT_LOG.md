@@ -3,10 +3,10 @@
 This file records project activities, milestones, ideas, decisions, issues, outputs, and analysis notes over time.
 
 ## 2026-07-08
-### Experimenting with QA/QC flags
-**Summary:** ...
+### Experimenting with data selection.
+**Summary:** Built a untility to select ldar data by using file name patters and datetimes. 
  
-**Next steps:**  ...  
+**Next steps:**  Build a subset of data to apply the QA/QC flags to.  
 
 ## 2026-06-30
 ### Setting up data flags
