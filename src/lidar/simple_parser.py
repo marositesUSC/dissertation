@@ -1,5 +1,5 @@
 """
-readers.py
+simple_parser.py
 
 File-reading utilities for USC and UIUC lidar data.
 
@@ -19,7 +19,6 @@ from pathlib import Path
 import re
 
 import pandas as pd
-
 
 def read_lidar_file(
     file_path: str | Path,
@@ -50,128 +49,17 @@ def read_lidar_file(
     file_path = Path(file_path)
     source = source.strip().upper()
 
-    content = read_file_lines(file_path)
-
-    header_lines, profile_lines = split_header_and_profile(
-        content=content,
-        end_meta=end_meta,
-    )
-
-    metadata = extract_metadata(
-        file_path=file_path,
-        source=source,
-        header_lines=header_lines,
-    )
-
-    dataset_descriptors = decode_dataset_descriptors(
-        header_lines=header_lines,
-        first_descriptor_index=4,
-    )
-
-    metadata["dataset_descriptors"] = dataset_descriptors
-    metadata["n_datasets"] = len(dataset_descriptors)
-
-    if dataset_descriptors:
-        metadata["n_bins"] = dataset_descriptors[0]["n_bins"]
-        metadata["bin_width_m"] = dataset_descriptors[0]["bin_width_m"]
-    else:
-        metadata["n_bins"] = None
-        metadata["bin_width_m"] = None
-
-    profile = profile_lines
-
-    return metadata, profile
-
-
-def read_file_lines(
-    file_path: str | Path,
-    encoding: str = "latin1",
-) -> list[str]:
-    """
-    Read all lines from a lidar file.
-
-    Parameters
-    ----------
-    file_path : str or pathlib.Path
-        Path to one lidar file.
-    encoding : str
-        Encoding used to read the ASCII/header section.
-
-    Returns
-    -------
-    list[str]
-        File lines.
-    """
-    file_path = Path(file_path)
-
-    with file_path.open("r", encoding=encoding, errors="replace") as file:
-        return file.readlines()
-
-
-def split_header_and_profile(
-    content: list[str],
-    end_meta: int,
-) -> tuple[list[str], list[str]]:
-    """
-    Split file content into metadata/header lines and profile/data lines.
-
-    Parameters
-    ----------
-    content : list[str]
-        Full file content as lines.
-    end_meta : int
-        Index where the metadata/header section ends.
-
-    Returns
-    -------
-    header_lines : list[str]
-        Metadata/header lines.
-    profile_lines : list[str]
-        Remaining lines after the metadata/header section.
-    """
-    if end_meta <= 0:
-        raise ValueError("end_meta must be greater than 0.")
-
-    if end_meta > len(content):
-        raise ValueError(
-            f"end_meta={end_meta} is greater than number of lines={len(content)}."
-        )
-
+    with open(file_path, 'r') as file:
+        content = file.readlines()
+    
     header_lines = [line.strip() for line in content[:end_meta]]
-    profile_lines = content[end_meta:]
-
-    return header_lines, profile_lines
-
-
-def extract_metadata(
-    file_path: str | Path,
-    source: str,
-    header_lines: list[str],
-) -> dict:
-    """
-    Extract standardized scan-level metadata from lidar header lines.
-
-    Parameters
-    ----------
-    file_path : str or pathlib.Path
-        Path to one lidar file.
-    source : str
-        Lidar source, such as 'UIUC' or 'USC'.
-    header_lines : list[str]
-        Metadata/header lines.
-
-    Returns
-    -------
-    dict
-        Standardized metadata dictionary.
-    """
-    file_path = Path(file_path)
 
     if len(header_lines) < 4:
         raise ValueError("Expected at least 4 header lines.")
 
     measurement_name = header_lines[0]
     header2_metadata = parse_header_line_2(header_lines[1])
+    dataset_descriptors = decode_dataset_descriptors(header_lines)
 
     metadata = {
         "source": source,
@@ -179,11 +67,30 @@ def extract_metadata(
         "file_path": str(file_path),
         "measurement_name": measurement_name,
         "header_lines": header_lines,
+        "dataset_descriptors": dataset_descriptors,
     }
 
     metadata.update(header2_metadata)
+    if not dataset_descriptors:
+        raise ValueError(f"No dataset descriptors found in file: {file_path}")
 
-    return metadata
+    n_bins = dataset_descriptors[0]["n_bins"]
+    bin_width = dataset_descriptors[0]["bin_width_m"]
+
+    metadata["n_bins"] = n_bins
+    metadata["bin_width_m"] = bin_width
+
+
+    profile_df = pd.read_csv(
+        file_path,
+        sep=',|\t', # sep=r",|\t|\s+",  
+        skiprows=end_meta,
+        engine="python",
+    )
+    profile_df.insert(0, 'range_bin', profile_df.index)
+    profile_df.insert(1, 'range_m', bin_width/2 + profile_df["range_bin"] * bin_width)    ## Using center of the range gate:
+    
+    return metadata, profile_df
 
 
 def parse_header_line_2(header2: str) -> dict:
@@ -230,7 +137,7 @@ def parse_header_line_2(header2: str) -> dict:
         "height_m_asl": float(parts["height_m_asl"]),
         "longitude_deg": float(parts["longitude_deg"]),
         "latitude_deg": float(parts["latitude_deg"]),
-        "raw_zenith_deg": float(parts["zenith_deg"]) * -1,
+        "raw_zenith_deg": float(parts["zenith_deg"]) * -1,    # Sign flip follows current project convention; verify against scan geometry.
         "raw_azimuth_deg": float(parts["azimuth_deg"]),
         "ground_temperature_c": float(parts["ground_temperature_c"]),
         "ground_pressure_hpa": float(parts["ground_pressure_hpa"]),
@@ -296,28 +203,3 @@ def decode_dataset_descriptors(
         descriptors.append(descriptor)
 
     return descriptors
-
-
-def build_empty_profile() -> pd.DataFrame:
-    """
-    Build an empty standardized profile dataframe.
-
-    Returns
-    -------
-    pandas.DataFrame
-        Empty profile dataframe with expected range-gate columns.
-    """
-    return pd.DataFrame(
-        columns=[
-            "range_bin",
-            "range_m",
-            "analog_raw",
-            "photon_raw",
-        ]
-    )
-
-# def build_profile_from_text_lines(profile_lines=profile_lines):
-#     """
-    
-#     """
-

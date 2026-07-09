@@ -80,7 +80,7 @@ def parse_raymetrics_filename_time(
     --------------
     prefix : Instrument/file source prefix, such as R or S
     YY     : two-digit year, e.g. 18 = 2018
-    M      : month, where 9 = September, A = October, B = November
+    M      : month, where 9 = September, A = October, B = November, C = December
     DD     : day of month
     HH     : hour
     MM     : minute
@@ -133,6 +133,8 @@ def parse_raymetrics_filename_time(
         month = 10
     elif month_token == "B":
         month = 11
+    elif month_token == "C":
+        month = 12
     else:
         month = int(month_token)
 
