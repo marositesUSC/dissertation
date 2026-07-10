@@ -137,7 +137,7 @@ def parse_header_line_2(header2: str) -> dict:
         "height_m_asl": float(parts["height_m_asl"]),
         "longitude_deg": float(parts["longitude_deg"]),
         "latitude_deg": float(parts["latitude_deg"]),
-        "raw_zenith_deg": float(parts["zenith_deg"]) * -1,    # Sign flip follows current project convention; verify against scan geometry.
+        "raw_zenith_deg": float(parts["zenith_deg"]), #* -1,    # Sign flip follows current project convention; verify against scan geometry.
         "raw_azimuth_deg": float(parts["azimuth_deg"]),
         "ground_temperature_c": float(parts["ground_temperature_c"]),
         "ground_pressure_hpa": float(parts["ground_pressure_hpa"]),
